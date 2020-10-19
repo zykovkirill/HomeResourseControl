@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Test.Models.Home>
+
+@{
+    ViewBag.Title = "AddHome";
+}
+
+<h2>MyAction</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th></th>
+    </tr>
+
+    <div>
+        <h3>Дома</h3>
+        <table>
+            <tr>
+                <td><p>Адресс</p></td>
+                <td><p>Ид</p></td>
+                <td></td>
+            </tr>
+            @if (ViewBag.Homes != null)
+            {
+            foreach (var b in ViewBag.Homes)
+            {
+        <tr>
+            <td><p>@b.Address</p></td>
+            <td><p>@b.Id</p></td>
+        </tr>
+            }
+            }
+        </table>
+    </div>
+
+</table>

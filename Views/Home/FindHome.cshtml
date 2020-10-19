@@ -1,0 +1,43 @@
+﻿@model Test.Models.Home
+
+@{
+    ViewBag.Title = "FindHome";
+}
+
+<h2>MyAction</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th></th>
+    </tr>
+
+    <div>
+        <h3>Дома</h3>
+        <table>
+            <tr>
+                <td><p>Адресс</p></td>
+                <td><p>Ид</p></td>
+                <td></td>
+            </tr>
+          
+                <tr>
+                    @if (ViewBag.Homes != null)
+                    {
+                    <td><p>@ViewBag.Homes.Address</p></td>
+                    <td><p>@ViewBag.Homes.HomeId</p></td>
+                    }
+                </tr>
+            
+        </table>
+    </div>
+
+</table>

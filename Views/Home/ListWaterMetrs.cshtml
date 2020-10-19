@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Test.Models.WaterMetr>
+@{
+    ViewBag.Title = "Каталог счётчиков";
+}
+
+<h2>Каталог игроков</h2>
+<p>
+    @Html.ActionLink("Добавить счётчик", "Create")
+</p>
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>Показания</th>
+        <th>Адресс</th>
+        <th>ID Дома</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Indications)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home.Id)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Каталог счётчиков", "ListWaterMetr")
+</p>

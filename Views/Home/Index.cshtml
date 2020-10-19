@@ -1,0 +1,166 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Система учета ресурсов</title>
+</head>
+<body>
+
+    <div>
+        <h3>Счетчики</h3>
+        <table>
+            <tr>
+                <td><p>Серийный номер</p></td>
+                <td><p>Показания</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.WaterMetrs)
+            {
+        <tr>
+            <td><p>@b.Number</p></td>
+            <td><p>@b.Indications</p></td>
+            @*<td><p>@b.Home.Address</p></td>*@
+        </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+
+        @using (Html.BeginForm("MyAction", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td><p>Введите № счетчика </p></td>
+                    <td><input type="text" name="Number" /> </td>
+                    <td><p>Введите показания </p></td>
+                    <td><input type="text" name="Indications" /> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button name="action" value="add">Добавить</button>
+                        <button name="action" value="delete">Удалить</button>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        }
+    </div>
+
+    <div>
+
+       @using (Html.BeginForm("AddHome", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td><p>Введите адрес дома </p></td>
+                    <td><input type="text" name="Address" /> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button name="action" value="add">Добавить</button>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        }
+    </div>
+
+    @using (Html.BeginForm("RemoveHome", "Home", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td><p>Введите id  дома </p></td>
+                <td><input type="text" name="HomeId" /> </td>
+            </tr>
+            <tr>
+                <td>
+                    <button name="action" value="remove">Удалить</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    }
+    </div>
+
+    @using (Html.BeginForm("FindHome", "Home", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td><p>Введите id дома </p></td>
+                <td><input type="text" name="HomeId" /> </td>
+            </tr>
+            <tr>
+                <td>
+                    <button name="action" value="find">Найти</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    }
+    </div>
+
+
+
+    @*<div>
+            <h3>Форма для добавления дома</h3>
+            <form method="post" action="">
+                <input type="hidden" value="@ViewBag.Homes" name="BookId" />
+                <table>
+                    <tr>
+                        <td><p>Введите адрес дома </p></td>
+                        <td><input type="text" name="HomeId" /> </td>
+                    </tr>
+                    <tr><td><input type="submit" value="Удалить" /> </td><td></td></tr>
+                </table>
+            </form>
+        </div>
+
+        <div>
+            <h3>Форма для удаления дома</h3>
+            <form method="post" action="">
+                <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+                <table>
+                    <tr>
+                        <td><p>Введите ID дома </p></td>
+                        <td><input type="text" name="HomeId" /> </td>
+                    </tr>
+                    <tr><td><input type="submit" value="Удалить" /> </td><td></td></tr>
+                </table>
+            </form>
+        </div>
+
+        <div>
+            <h3>Форма поиска дома</h3>
+            <form method="post" action="">
+                <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+                <table>
+                    <tr>
+                        <td><p>Введите ID дома </p></td>
+                        <td><input type="text" name="HomeId" /> </td>
+                    </tr>
+                    <tr><td><input type="submit" value="Найти" /> </td><td></td></tr>
+                </table>
+            </form>
+        </div>
+
+        <div>
+            <h3>Форма редактирования дома</h3>
+            <form method="post" action="">
+                <input type="hidden" value="@ViewBag.BookId" name="HomeId" />
+                <table>
+                    <tr>
+                        <td><p>Введите ID дома </p></td>
+                        <td><input type="text" name="Person" /> </td>
+                    </tr>
+                    <tr><td><input type="submit" value="Редактировать" /> </td><td></td></tr>
+                </table>
+            </form>
+        </div>*@
+</body>
+</html>

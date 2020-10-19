@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Test.Models.WaterMetr>
+
+@{
+    ViewBag.Title = "MyAction";
+}
+
+<h2>MyAction</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Indications)
+        </th>
+        <th></th>
+    </tr>
+
+    <div>
+        <h3>Счетчики</h3>
+        <table>
+            <tr>
+                <td><p>Серийный номер</p></td>
+                <td><p>Показания</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.WaterMetrs)
+            {
+                <tr>
+                    <td><p>@b.Number</p></td>
+                    <td><p>@b.Indications</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</table>
